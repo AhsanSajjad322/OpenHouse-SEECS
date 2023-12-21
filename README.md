@@ -1,66 +1,121 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Open House Management Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# How to setup
+Following are the steps to run this web crawler
+1) First download this repository or else clone it in the folder.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2) ### To clone it write command : 
+    ```git clone https://github.com/AhsanSajjad322/OpenHouse-SEECS.git```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3) Then start your Apache Server and MySQL service to access PhpAdmin. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4) After that first we have to make migrations to run the following command in terminal:
+    ```php artian migrate```
+NOTE: If the above command gives error, then write ':refresh' at the end. 
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+5) Then we have to seed(enter) values in database. For this run the following command, which will take values from DatabaseSeeder.php files and insert in database:
+    ```php artisan db:seed```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+6) Then locate to the directory where README.md file is located using termnial and serve the server using command :
+    ```php artisan serve```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7) Then click on the URL provided and this takes you to the index page of the project
 
-## Laravel Sponsors
+8) Now to login to the sytem, enter credentials form any of following:
+ - For UserType = Admin
+    Email: ali@example.com
+    Password: ali
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+ - For UserType = Student
+    Email: ahmed@example.com
+    Password: ahmed
 
-### Premium Partners
+ - For UserType = Evaluator
+    Email: ahsan@example.com
+    Password: ahsan
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+This will take you to the respective views of users.
 
-## Contributing
+# About Project
+* The code is the Open House Management Platorm, used when FYP's demonstrations are to be organized.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* It helps evaluators and project groups manage their preferences and details easily.
 
-## Code of Conduct
+*  The admin has control over project locations, ensuring a smooth event flow. Students can track evaluator involvement without seeing specific scores, maintaining fairness and feedback.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Technologies used
+* Laravel for making API's(backend)
+* HTML to structure the content shown on webpage.
+* CSS with Bootstrap to style the content.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# About Code
+## Users
+* There are 3 types of users for the sytem:
+- Student (FYP Group)
+- Admin
+- Evaluator
 
-## License
+## Routes
+* Separate routes for Student, Admin, Evaulators are defined in code  
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Controllers
+* AdminController -> to handle admin related logic.
+* EvaluatorController -> to handle evaluator related logic.
+* StudentController -> to handle student related logic.
+* AuthController -> to handle authentication related logic.
+
+## Models:
+* Admin
+* Category
+* Evaluation
+* Evaluator
+* Location
+* Project
+* Student
+
+## Views:
+* All views are defined in views/layouts folder.
+* Views are written using Blade templating engine
+
+# Functionalities
+## User Accounts:
+* Guests (Evaluators): Each evaluator has a dedicated account.
+* Evaluators can set preferences such as preferred project categories and specialty areas.
+
+## FYP Groups:
+* Final Year Project (FYP) groups have accounts to manage project details.
+* FYP groups can assign keywords to their projects.
+
+## Admin Account:
+* An admin account has the authority to set the physical location of each FYP project on the demonstration floor.
+
+## Project Assignment:
+* Projects are randomly assigned to evaluators based on matching keywords and evaluator preferences.
+* Each evaluator is assigned to evaluate between 3-5 projects.
+
+## Evaluation Process:
+* Evaluators can rate each project on a scale of 1-10.
+* Evaluation results are visible only to the admin.
+
+## Student Access:
+* Students can view the number of evaluators who have assessed their projects.
+* Students do not have access to individual evaluator scores.
+
+# Open House Interface
+![login image](/public/assests/login.png)
+
+![admin view image](/public/assests/adminView.png)
+
+![admin project details image](/public/assests/adminViewProjectDetails.png)
+
+![student view image](/public/assests/studentView.png)
+
+![student edit project image](/public/assests/studentEditProject.png)
+
+![evaluator view image](/public/assests/evalView.png)
+
+![evaluator project details image](/public/assests/evalViewProjectDetails.png)
+
